@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [pixel, setPixel] = useState(0);
+
+  const handleChange = (e) => {
+    setPixel(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>PIXEL TO REM CONVERSION</h1>
+      <label htmlFor="pixel">Px:</label>
+      <input name="pixel" type="text" value={pixel} onChange={handleChange} />
+      <br />
+      <br />
+      <label htmlFor="rem">rem:</label>
+      <input name="rem" type="text" value={pixel / 16} placeholder="REM" />
     </div>
   );
 }
-
-export default App;
